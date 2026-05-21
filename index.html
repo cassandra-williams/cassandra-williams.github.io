@@ -31,7 +31,8 @@
 
   <div class="container">
     <header>
-      <div class="name-title">
+      <div class="name-title"><!-- Name removed from header on index page -->
+
         <div class="site-name"></div>
       </div>
       <button class="mobile-toggle" id="mobileToggle">☰</button>
@@ -114,7 +115,7 @@
     let lastScrollY = window.scrollY;
 
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 75) {
         stickyNav.classList.add('visible');
       } else {
         stickyNav.classList.remove('visible');
