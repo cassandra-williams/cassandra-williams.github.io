@@ -48,14 +48,14 @@ header {
 .page-name {
   font-family: 'Source Serif 4', serif;
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3rem;
   letter-spacing: -0.3px;
   color: black;
   margin-bottom: 0.25rem;
 }
 
 .page-intro {
-  text-align: center;
+  text-align: left;
   margin-bottom: 2rem;
 }
 
