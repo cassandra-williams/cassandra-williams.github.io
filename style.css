@@ -5,11 +5,15 @@
   box-sizing: border-box;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Source Sans 3';
   background: white;
   color: black;
-  line-height: 1.6;
+  line-height: 1.5;
   font-weight: 400;
 }
 
@@ -39,19 +43,23 @@ header {
   margin-bottom: 0.25rem;
 }
 
-.tagline {
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 1rem;
-}
+
 
 .page-name {
   font-family: 'Source Serif 4', serif;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   letter-spacing: -0.3px;
   color: black;
   margin-bottom: 0.25rem;
+}
+
+
+
+.page-tagline {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1rem;
 }
 
 .page-intro {
@@ -63,14 +71,15 @@ header {
 nav {
   margin-top: 1rem;
   display: flex;
-  justify-content: flex-end;  /* Pushes nav buttons to the right */
+  justify-content: flex-end;
+  gap: 1.5rem;                /* uniform spacing */
 }
 
 nav a {
-  color: black;
+  color: #222;                /* inactive = gray */
   text-decoration: none;
-  margin-left: 1.8rem;  /* Changed from margin-right to margin-left */
-  font-weight: 500;
+  margin-left: 0;             /* remove old margin */
+  font-weight: 400;           
   font-size: 1rem;
   transition: color 0.2s;
 }
@@ -78,6 +87,7 @@ nav a {
 nav a:hover {
   color: #bb2525;
 }
+
 nav a.active {
   color: #bb2525;
 }
@@ -97,16 +107,34 @@ a:hover {
   text-decoration: underline;
 }
 
-/* About page grid */
+/* About page - float layout */
 .about-grid {
-  display: flex;
-  gap: 3rem;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  display: block;
+}
+
+.about-grid::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.about-image {
+  float: right;
+  width: 35%;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  margin-top: -7rem;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .about-text {
-  flex: 1.5;
+  display: block;
 }
 
 .about-text h2 {
@@ -118,9 +146,21 @@ a:hover {
 
 .about-text p {
   margin-bottom: 1rem;
-    text-align: justify;
-  text-justify: inter-word;
+  font-size: 1.125rem;
+  text-align: justify;
+  overflow-wrap: break-word;
+    text-justify: inter-word;
 }
+
+@media (max-width: 800px) {
+  .about-image {
+    float: none;
+    width: 100%;
+    margin: 0 0 1.5rem 0;
+  }
+}
+
+
 .research-left p {
   margin-bottom: 1rem;
     text-align: justify;
@@ -131,15 +171,6 @@ a:hover {
   margin-bottom: 0;
 }
 
-.about-image {
-  flex: 1;
-}
-
-.about-image img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
 
 /* RESEARCH PAGE – two column layout */
 .research-layout {
@@ -154,6 +185,13 @@ a:hover {
 
 .research-right {
   flex: 1;
+  margin-top: -4rem;
+}
+
+@media (max-width: 800px) {
+  .research-right,
+    margin-top: 0;
+  }
 }
 
 .research-left h2 {
@@ -194,11 +232,10 @@ a:hover {
   font-size: 1.4rem;
   font-weight: 400;
   color: #bb2525;
-  transition: transform 0.2s;
 }
 
 .card-details {
-  font-size: .95rem;
+  font-size: 1rem;
   display: none;
   padding: 0 1.25rem 1.25rem 1.25rem;
   border-top: 1px solid #eaeaea;
@@ -219,9 +256,7 @@ a:hover {
   display: block;
 }
 
-.research-card.expanded .expand-icon {
-  transform: rotate(45deg);
-}
+
 
 /* Right column boxes */
 .right-box {
@@ -268,12 +303,10 @@ footer {
   .container {
     padding: 1.5rem;
   }
-  nav a {
-    margin-right: 1rem;
-  }
+
 }
 
-/* ===== STICKY COLLAPSING NAVIGATION ===== */
+/* ===== STICKY NAVIGATION ===== */
 .sticky-nav {
   position: fixed;
   top: 0;
@@ -282,13 +315,8 @@ footer {
   background: white;
   border-bottom: 1px solid #eaeaea;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transform: translateY(-100%);
-  transition: transform 0.3s ease-in-out;
   z-index: 1000;
-  padding: 1rem 2rem;  
-}
-.sticky-nav.visible {
-  transform: translateY(0);
+  padding: 1.25rem 2rem;
 }
 
 .sticky-nav .sticky-container {
@@ -299,32 +327,33 @@ footer {
   align-items: center;
 }
 
-.sticky-nav nav {
-  margin-top: 0;
-  align-items: center;
-}
-
 .sticky-nav .sticky-name {
   font-family: 'Source Serif 4', serif;
   font-weight: 600;
-  font-size: 1.5rem;  /* Slightly larger */
+  font-size: 1.5rem;
   color: black;
   text-decoration: none;
-    line-height: 1;
+  line-height: 1;
+}
+
+.sticky-nav .sticky-name:hover {
+  color: #bb2525;
+}
+
+.sticky-nav nav {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;                /* uniform spacing, ignores width changes */
 }
 
 .sticky-nav nav a {
-  color: black;
+  color: #222;                /* inactive = gray */
   text-decoration: none;
-  margin-left: 1.2rem;  /* Reduced from 1.8rem — closer together */
-  font-weight: 500;
-  font-size: 0.9rem;
+  margin-left: 0;             /* no more margin-based spacing */
+  font-weight: 400;           /* always bold so active state doesn't shift */
+  font-size: 1.125rem;
   transition: color 0.2s;
-}
-
-/* First nav link in sticky nav shouldn't have left margin */
-.sticky-nav nav a:first-of-type {
-  margin-left: 0;
 }
 
 .sticky-nav nav a:hover {
@@ -333,21 +362,21 @@ footer {
 
 .sticky-nav nav a.active {
   color: #bb2525;
+  font-weight: 600;
 }
 
-/* Add padding to body so sticky nav doesn't cover content */
+
+/* Push page content down so it doesn't hide under the sticky nav */
 body {
-  padding-top: 0;
+  padding-top: 60px;
 }
 
-/* Small adjustment for when sticky nav is visible */
-.sticky-nav.visible + .container {
-  padding-top: 0;
-}
+
 
 /* Social links under photo — subtle style like presentations */
 .social-links {
   margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -396,8 +425,7 @@ body {
 /* Research blurb at top */
 .research-blurb {
   margin-bottom: 2rem;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.125rem;
   color: #333;
 }
 
@@ -440,11 +468,12 @@ body {
 
 .card-title {
   color: #222;
-  font-size: 1rem;
+  font-size: 1.075rem;
+  padding: 0 0 .5rem 0;
 }
 
 .expand-icon {
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   font-weight: 400;
   color: #aaa;
   transition: color 0.15s, transform 0.15s;
@@ -459,7 +488,7 @@ body {
   padding: 0 0 1rem 0;
   border-top: none;
   background: white;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.5;
   color: #444;
 }
@@ -477,10 +506,7 @@ body {
   display: block;
 }
 
-.research-card.expanded .expand-icon {
-  transform: rotate(45deg);
-  color: #bb2525;
-}
+
 
 .research-card.expanded .card-header {
   background: transparent;
@@ -503,7 +529,7 @@ body {
 .presentation-title {
   font-weight: 500;
   color: #222;
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-bottom: 0.2rem;
 }
 
@@ -522,7 +548,7 @@ body {
 .semester-badge {
   background-color: #f0f0f0;
   color: #555;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 500;
   padding: 0.2rem 0.6rem;
   border-radius: 20px;
@@ -546,7 +572,7 @@ body {
 
 .presentation-venue {
   color: #666;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 
@@ -715,4 +741,13 @@ body {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: black;
+}
+
+/* On index page, hide sticky name until scrolled */
+.home .sticky-nav .sticky-name {
+  opacity: 0;
+}
+
+.home .sticky-nav.visible .sticky-name {
+  opacity: 1;
 }
