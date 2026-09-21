@@ -189,8 +189,9 @@ a:hover {
 }
 
 @media (max-width: 800px) {
-  .research-right,
+  .research-right{
     margin-top: 0;
+  }
   }
 }
 
