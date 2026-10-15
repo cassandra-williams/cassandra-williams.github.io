@@ -746,7 +746,7 @@ body {
 .page-heading {
   font-family: 'Source Serif 4', serif;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 1.5rem;
   color: black;
 }

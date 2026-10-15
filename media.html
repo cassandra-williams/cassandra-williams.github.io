@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media – Cassandra Williams</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Icon libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+</head>
+<body>
+  <!-- Sticky navigation bar -->
+  <div class="sticky-nav" id="stickyNav">
+    <div class="sticky-container">
+      <a href="index.html" class="sticky-name">Cassandra Williams</a>
+      <button class="sticky-mobile-toggle" id="stickyMobileToggle">☰</button>
+      <nav id="stickyMainNav">
+        <a href="index.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="talks.html">Talks</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="media.html" class="active">Media</a>
+        <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <main>
+      <h2 class="page-heading">Media</h2>
+
+      <div class="presentations-list">
+        <h2 class="section-heading">
+            Press</h2>
+        <div class="presentation-item">
+          <span class="presentation-title" style="font-size: 1.25rem;"><a href="https://www.artsci.utoronto.ca/news/can-tiny-worm-make-decisions-philosophy-phd-candidate-cassandra-williams-explores-surprising" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Can a tiny worm make decisions?</a></span>
+          <span class="presentation-venue" style="font-size: 1rem;">U of T Arts & Science News</span><div class="badge-group">
+              
+              </div>
+
+         
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2026 Cassandra Williams</p>
+    </footer>
+  </div>
+
+  <script>
+    // Sticky nav on scroll
+    const stickyNav = document.getElementById('stickyNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 75) {
+        stickyNav.classList.add('visible');
+      } else {
+        stickyNav.classList.remove('visible');
+      }
+    });
+  </script>
+  <script>
+    // Sticky nav mobile menu toggle
+    const stickyToggle = document.getElementById('stickyMobileToggle');
+    const stickyNavMenu = document.getElementById('stickyMainNav');
+
+    if (stickyToggle && stickyNavMenu) {
+      stickyToggle.addEventListener('click', () => {
+        stickyNavMenu.classList.toggle('open');
+      });
+
+      // Close menu when a link is clicked
+      stickyNavMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          stickyNavMenu.classList.remove('open');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
