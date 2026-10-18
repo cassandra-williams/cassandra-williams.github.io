@@ -29,116 +29,96 @@
       </nav>
     </div>
   </div>
+
   <div class="container">
     <main>
-      <div class="page-intro">
-        <h1 class="page-name">Cassandra Williams</h1>
-        <p class="page-tagline">Ph.D. Candidate · Philosophy · University of Toronto</p>
-      </div>
+      <div class="home-layout">
 
-      <div class="about-grid">
-        <!-- Photo first so the float wraps the text around it -->
-        <div class="about-image">
-          <img src="images/Cassandra_Williams_crop_2705.jpg" alt="Cassandra Williams">
-          
-          <!-- Social links under photo -->
-          <div class="social-links">
-            <a href="mailto:cassandra.williams@mail.utoronto.ca" class="social-link">
-              <i class="fas fa-envelope"></i> 
-              <span>Email</span>
-            </a>
-            <a href="https://philpeople.org/profiles/cassandra-williams" class="social-link" target="_blank">
-              <i class="ai ai-philpapers"></i> 
-              <span>PhilPeople</span>
-            </a>
-            <a href="https://orcid.org/0009-0002-2291-5052" class="social-link" target="_blank">
-              <i class="ai ai-orcid"></i> 
-              <span>ORCID</span>
-            </a>
-            <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer" class="social-link">
-              <i class="fas fa-file-alt"></i> 
-              <span>CV</span>
-            </a>
+        <!-- LEFT: name, bio -->
+        <div class="home-main">
+          <h1 class="page-name">Cassandra Williams</h1>
+
+          <div class="home-about">
+            <p>I am a Ph.D. Candidate and SSHRC Doctoral Scholar in the
+              <a href="https://www.philosophy.utoronto.ca">Department of Philosophy</a> at the University of Toronto.</p>
+
+            <p>My primary <a href="research.html">research areas</a> are the philosophy of mind and cognitive science.
+              My main research project investigates the mind at its lower boundaries:
+              I synthesize research concerning invertebrate sentience and primitive biological
+              agency to develop a framework that unifies life, agency, and sentience.</p>
+
+            <p>More generally, I am interested in a wide breadth of issues to do with locating
+              the mind in the natural world, and I approach these issues with the tools of metaphysics
+              and empirically-informed philosophy alike.</p>
+
+            <p>I have secondary interests in the philosophy of science,
+              including neuroscience, artificial intelligence, medicine, and biology.</p>
+
+            <p>I completed my M.A. in the
+              <a href="https://ihpst.utoronto.ca">History and Philosophy of Science and Technology</a>,
+              and my B.A. in <a href="https://www.philosophy.utoronto.ca">Philosophy</a> and <a href="https://www.uc.utoronto.ca/cognitive-science">Cognitive Science</a>,
+              both at the University of Toronto.</p>
+
+            <p>From 2022-2023 I was a Ph.D. student in the <a href="https://www.yorku.ca/gradstudies/philosophy/">
+                Department of Philosophy at York University.</a></p>
           </div>
         </div>
 
-        <!-- Text flows around the floated photo -->
-        <div class="about-text">
-          <h2>About me</h2>
-          <p>I am a Ph.D. Candidate and SSHRC Doctoral Scholar in the 
-            <a href="https://www.philosophy.utoronto.ca">
-              Department of Philosophy</a> at the University of Toronto.</p>
-          
-          <p>My primary <a href="research.html">research areas</a> are the philosophy of mind and cognitive science. 
-            My main research project investigates the mind at its lower boundaries: 
-            I synthesize research concerning invertebrate sentience and primitive biological 
-            agency to develop a framework that unifies life, agency, and sentience.</p>
-          
-          <p>More generally, I am interested in a wide breadth of issues to do with locating
-            the mind in the natural world, and I approach these issues with the tools of metaphysics 
-            and empirically-informed philosophy alike.</p>
+        <!-- RIGHT: photo, info block -->
+        <aside class="home-sidebar">
+          <div class="home-photo">
+            <img src="images/profile.jpg" alt="Cassandra Williams">
+          </div>
 
-          <p>I have secondary interests in the philosophy of science, 
-            including neuroscience, artificial intelligence, medicine, and biology.</p>
+          <div class="home-links">
+  <a href="mailto:cassandra.williams@mail.utoronto.ca" aria-label="Email">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <a href="https://philpeople.org/profiles/cassandra-williams" target="_blank" rel="noopener noreferrer" aria-label="PhilPeople">
+    <i class="ai ai-philpapers"></i>
+  </a>
+  <a href="https://orcid.org/0009-0002-2291-5052" target="_blank" rel="noopener noreferrer" aria-label="ORCID">
+    <i class="ai ai-orcid"></i>
+  </a>
+  <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer" aria-label="Curriculum Vitae">
+    <i class="ai ai-cv"></i>
+  </a>
+</div>
+        </aside>
 
-          <p>I completed my M.A. in the 
-            <a href="https://ihpst.utoronto.ca">History and Philosophy of Science and Technology</a>, 
-            and my B.A. in <a href="https://www.philosophy.utoronto.ca">Philosophy</a> and <a href="https://www.uc.utoronto.ca/cognitive-science">Cognitive Science</a>,
-            both at the University of Toronto.</p>
-
-          <p>From 2022-2023 I was a Ph.D. student in the <a href="https://www.yorku.ca/gradstudies/philosophy/">
-              Department of Philosophy at York University.</a></p>
-        </div>
       </div>
     </main>
 
     <footer>
-      <p>© 2026 Cassandra Williams</p>
+      <p></p>
     </footer>
   </div>
 
   <script>
-  // Mobile menu toggle
-  const toggle = document.getElementById('mobileToggle');
-  const nav = document.getElementById('mainNav');
-  
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
+    const stickyNav = document.getElementById('stickyNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 75) {
+        stickyNav.classList.add('visible');
+      } else {
+        stickyNav.classList.remove('visible');
+      }
     });
-  }
   </script>
-
   <script>
-  // Sticky nav mobile menu toggle
-  const stickyToggle = document.getElementById('stickyMobileToggle');
-  const stickyNavMenu = document.getElementById('stickyMainNav');
-  
-  if (stickyToggle && stickyNavMenu) {
-    stickyToggle.addEventListener('click', () => {
-      stickyNavMenu.classList.toggle('open');
-    });
-    
-    // Close menu when a link is clicked
-    stickyNavMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        stickyNavMenu.classList.remove('open');
+    const stickyToggle = document.getElementById('stickyMobileToggle');
+    const stickyNavMenu = document.getElementById('stickyMainNav');
+
+    if (stickyToggle && stickyNavMenu) {
+      stickyToggle.addEventListener('click', () => {
+        stickyNavMenu.classList.toggle('open');
       });
-    });
-  }
-  </script>
 
-  <script>
-  // Show sticky name when scrolled (index page only)
-  const stickyNav = document.getElementById('stickyNav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 75) {
-      stickyNav.classList.add('visible');
-    } else {
-      stickyNav.classList.remove('visible');
+      stickyNavMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          stickyNavMenu.classList.remove('open');
+        });
+      });
     }
-  });
   </script>
-
 </body>
 </html>
