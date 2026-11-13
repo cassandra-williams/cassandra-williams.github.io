@@ -57,6 +57,7 @@ h3, .section-heading {
   font-weight: 500;
   font-size: 1.75rem;
   margin: 2rem 0 1rem 0;
+  /* No borders */
 }
 
 .section-heading:first-of-type {
@@ -168,7 +169,6 @@ a:hover {
   color: #bb2525;
   text-shadow: none;
 }
-
 
 /* ============================================================
    PAGE LAYOUTS (Research, Teaching, Talks)
@@ -286,6 +286,9 @@ a:hover {
 .presentations-list {
   margin-top: 0.5rem;
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Uses gap instead of borders */
 }
 
 .presentation-item {
@@ -296,8 +299,7 @@ a:hover {
   margin-right: -1rem;
   
   border: 1px solid transparent;
-  border-left: 3px solid transparent; /* Reserves space for the red line */
-  border-bottom: 1px solid #eaeaea;
+  border-left: 3px solid transparent; 
   border-radius: 4px;
   
   transition: background 0.15s ease, border-color 0.15s ease;
@@ -307,10 +309,6 @@ a:hover {
   background: #fafafa;
   border-color: #e3e3e3;
   border-left-color: #bb2525; 
-}
-
-.presentation-item:last-child {
-  border-bottom-color: transparent;
 }
 
 .presentation-title {
@@ -399,7 +397,6 @@ a:hover {
   padding: 1rem; 
   border: 1px solid transparent;
   border-left: 3px solid transparent; 
-  border-bottom: 1px solid #eaeaea;
   border-radius: 4px;
   transition: background 0.15s ease, border-color 0.15s ease;
   align-items: start;
@@ -434,12 +431,11 @@ a:hover {
 }
 
 .paper:hover .paper-title {
-  text-shadow: 0 0 1px currentColor;  
+  color: #bb2525;
 }
 
 .paper-title:hover {
-  color: #bb2525;
-  text-shadow: 0 0 1px currentColor; 
+  color: #;
   text-decoration: none;
 }
 
@@ -513,8 +509,6 @@ a:hover {
   grid-column: 1 / -1;
   display: none;
   margin-top: 0.75rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid #eaeaea;
   font-size: 1rem;
   line-height: 1.6;
   color: #444;
@@ -530,7 +524,7 @@ a:hover {
 .talk-list {
   display: flex;
   flex-direction: column;
-  gap: 0; 
+  gap: 0.5rem; /* Uses gap instead of borders */
   margin-bottom: 2rem;
 }
 
@@ -538,7 +532,6 @@ a:hover {
   padding: 1rem;
   border: 1px solid transparent;
   border-left: 3px solid transparent; 
-  border-bottom: 1px solid #eaeaea;
   border-radius: 4px;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
@@ -600,6 +593,7 @@ a:hover {
 footer {
   padding-top: 2rem;
   padding-bottom: 0.5rem;
+  border-top: 1px solid #eaeaea; /* Only line on the page now */
   text-align: right;
   font-size: 0.85rem;
   color: #666;
