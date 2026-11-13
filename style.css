@@ -96,7 +96,7 @@ a:hover {
 .home-layout {
   display: grid;
   grid-template-columns: 62% 1fr;
-  gap: 6rem;
+  gap: 4rem;
   align-items: start;
 }
 
@@ -105,7 +105,7 @@ a:hover {
 }
 
 .home-photo {
-  max-width: 300px;
+  max-width: 400px;
   margin-bottom: 1rem;
 }
 
@@ -122,6 +122,10 @@ a:hover {
   text-align: justify;
   overflow-wrap: break-word;
   text-justify: inter-word;
+}
+
+.home-sidebar {
+  margin-top: 2rem; /* Pushes it down */
 }
 
 /* Home Horizontal Links */
@@ -147,7 +151,9 @@ a:hover {
 
 .home-links i.ai {
   font-size: 2rem;
-}
+} 
+
+
 
 /* ============================================================
    PAGE LAYOUTS (Research, Teaching, Talks)
@@ -155,14 +161,14 @@ a:hover {
 .research-layout {
   display: grid;
   grid-template-columns: 66% 1fr;
-  gap: 6rem;
+  gap: 4rem;
   align-items: start;
 }
 
 .teaching-layout {
   display: grid;
   grid-template-columns: 60% 1fr;
-  gap: 6rem;
+  gap: 4rem;
   align-items: start;
 }
 
