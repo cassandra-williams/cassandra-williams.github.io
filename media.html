@@ -9,28 +9,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Icon libraries -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
 </head>
 <body>
-  <!-- Sticky navigation bar -->
   <div class="sticky-nav" id="stickyNav">
     <div class="sticky-container">
       <a href="index.html" class="sticky-name">Cassandra Williams</a>
       <button class="sticky-mobile-toggle" id="stickyMobileToggle">☰</button>
-      
-      <!-- Full screen overlay nav -->
       <nav id="stickyMainNav">
-        <button class="mobile-close-btn" id="mobileCloseBtn">✕</button>
-        <div class="mobile-nav-links">
-          <a href="index.html">About</a>
-          <a href="research.html">Research</a>
-          <a href="talks.html">Talks</a>
-          <a href="teaching.html">Teaching</a>
-          <a href="media.html" class="active">Media</a>
-          <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
-        </div>
+        <a href="index.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="talks.html">Talks</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="media.html" class="active">Media</a>
+        <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
       </nav>
     </div>
   </div>
@@ -54,12 +47,11 @@
     </main>
 
     <footer>
-      <p>© 2026 Cassandra Williams</p>
+      <p></p>
     </footer>
   </div>
 
   <script>
-    // Sticky nav on scroll
     const stickyNav = document.getElementById('stickyNav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 75) {
@@ -68,29 +60,13 @@
         stickyNav.classList.remove('visible');
       }
     });
-  </script>
-  <script>
-    // Mobile menu toggle
+
     const stickyToggle = document.getElementById('stickyMobileToggle');
-    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
     const stickyNavMenu = document.getElementById('stickyMainNav');
     
-    if (stickyToggle && stickyNavMenu && mobileCloseBtn) {
-      // Open menu
+    if (stickyToggle && stickyNavMenu) {
       stickyToggle.addEventListener('click', () => {
-        stickyNavMenu.classList.add('open');
-      });
-      
-      // Close menu via X
-      mobileCloseBtn.addEventListener('click', () => {
-        stickyNavMenu.classList.remove('open');
-      });
-      
-      // Close menu when clicking a link
-      stickyNavMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          stickyNavMenu.classList.remove('open');
-        });
+        stickyNavMenu.classList.toggle('open');
       });
     }
   </script>

@@ -13,23 +13,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
 </head>
 <body>
-  <!-- Sticky navigation bar -->
   <div class="sticky-nav" id="stickyNav">
     <div class="sticky-container">
       <a href="index.html" class="sticky-name">Cassandra Williams</a>
       <button class="sticky-mobile-toggle" id="stickyMobileToggle">☰</button>
-      
-      <!-- Full screen overlay nav -->
       <nav id="stickyMainNav">
-        <button class="mobile-close-btn" id="mobileCloseBtn">✕</button>
-        <div class="mobile-nav-links">
-          <a href="index.html">About</a>
-          <a href="research.html">Research</a>
-          <a href="talks.html">Talks</a>
-          <a href="teaching.html" class="active">Teaching</a>
-          <a href="media.html">Media</a>
-          <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
-        </div>
+        <a href="index.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="talks.html">Talks</a>
+        <a href="teaching.html" class="active">Teaching</a>
+        <a href="media.html">Media</a>
+        <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
       </nav>
     </div>
   </div>
@@ -39,12 +33,9 @@
       <h2 class="page-heading">Teaching</h2>
 
       <div class="research-layout teaching-layout">
-        <!-- LEFT COLUMN -->
         <div class="research-left">
-          
           <h2 class="section-heading">As Primary Instructor</h2>
           <div class="presentations-list">
-            
             <div class="presentation-item">
               <div class="presentation-title">
                 <span class="course-name">Freedom, Responsibility, and Human Action</span>
@@ -64,8 +55,7 @@
                 <a href="files/syllabi/Philosophy of Human Sexuality - Summer 2026 (web copy).pdf" class="semester-badge link" target="_blank" rel="noopener noreferrer">Summer 2026</a>
               </div>
             </div>
-
-          </div> <!-- closes presentation list -->
+          </div> 
 
           <h2 class="section-heading">As Tutorial Leader</h2>
           
@@ -131,26 +121,24 @@
                 <span class="semester-badge">Fall-Winter 2018-19</span>
               </div>
             </div>
-          </div> <!-- Close presentations-list -->
-        </div>  <!-- Close research-left -->
+          </div>
+        </div>
 
-        <!-- RIGHT COLUMN -->
         <div class="research-right">
           <div class="photo-caption">
             <img src="images/bear-mcdowell.png" alt="A bear reading John McDowell">
             <p class="caption">A faithful student.</p>
           </div>
-        </div>  <!-- Close research-right -->
-      </div>  <!-- Close research-layout -->
+        </div>
+      </div>
     </main>
 
     <footer>
-      <p>© 2026 Cassandra Williams</p>
+      <p></p>
     </footer>
   </div>
 
   <script>
-    // Sticky nav on scroll
     const stickyNav = document.getElementById('stickyNav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 75) {
@@ -159,29 +147,13 @@
         stickyNav.classList.remove('visible');
       }
     });
-  </script>
-  <script>
-    // Mobile menu toggle
+
     const stickyToggle = document.getElementById('stickyMobileToggle');
-    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
     const stickyNavMenu = document.getElementById('stickyMainNav');
     
-    if (stickyToggle && stickyNavMenu && mobileCloseBtn) {
-      // Open menu
+    if (stickyToggle && stickyNavMenu) {
       stickyToggle.addEventListener('click', () => {
-        stickyNavMenu.classList.add('open');
-      });
-      
-      // Close menu via X
-      mobileCloseBtn.addEventListener('click', () => {
-        stickyNavMenu.classList.remove('open');
-      });
-      
-      // Close menu when clicking a link
-      stickyNavMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          stickyNavMenu.classList.remove('open');
-        });
+        stickyNavMenu.classList.toggle('open');
       });
     }
   </script>

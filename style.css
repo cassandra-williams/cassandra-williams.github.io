@@ -237,15 +237,14 @@ a:hover {
   color: black;
   text-decoration: none;
   line-height: 1;
-  margin-top: 10px;
 }
 
 .sticky-nav .sticky-name:hover {
   color: #bb2525;
 }
 
+/* Desktop Nav */
 .sticky-nav nav {
-  margin-top: 0;
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -254,7 +253,6 @@ a:hover {
 .sticky-nav nav a {
   color: #222;
   text-decoration: none;
-  margin-top: 10px;
   font-weight: 400;
   font-size: 1.125rem;
   transition: color 0.2s;
@@ -269,7 +267,7 @@ a:hover {
   font-weight: 600;
 }
 
-/* Homepage Nav Hide/Show */
+/* Homepage Name Hide/Show (Desktop) */
 .home .sticky-nav .sticky-name {
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -277,6 +275,18 @@ a:hover {
 
 .home .sticky-nav.visible .sticky-name {
   opacity: 1;
+}
+
+/* Hide Mobile Toggle on Desktop */
+.sticky-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: black;
+  padding: 0.5rem;
+  line-height: 1;
 }
 
 /* ============================================================
@@ -296,11 +306,9 @@ a:hover {
   padding: 1rem; 
   margin-left: -1rem; 
   margin-right: -1rem;
-  
   border: 1px solid transparent;
   border-left: 3px solid transparent; 
   border-radius: 4px;
-  
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
@@ -363,7 +371,7 @@ a:hover {
 }
 
 /* ============================================================
-   PHOTOS WITH CAPTIONS (Research & Teaching Right Columns)
+   PHOTOS WITH CAPTIONS
    ============================================================ */
 .photo-caption {
   margin-bottom: 1.5rem;
@@ -650,96 +658,51 @@ footer {
 }
 
 /* Mobile Menu (768px and below) */
-.mobile-toggle,
-.sticky-mobile-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: black;
-  padding: 0.5rem;
-  line-height: 1;
-}
-
 @media (max-width: 768px) {
-  /* 1. Tighten the bar, make the text bigger */
   .sticky-nav {
-    padding: 0.4rem 1.25rem; 
+    padding: 0.8rem 1rem;
   }
 
-  .sticky-nav .sticky-name {
-    font-size: 1.4rem; 
-    margin-top: 0; 
+  /* Force name to stay visible on mobile */
+  .home .sticky-nav .sticky-name {
+    font-size: 1.2rem;
     opacity: 1 !important; 
   }
 
   .sticky-mobile-toggle {
     display: block !important;
-    margin-top: 0;
-    font-size: 1.6rem;
-    color: #222;
   }
 
-  /* 2. The Full-Screen Overlay */
+  /* The Dropdown Menu */
   .sticky-nav nav {
-    position: fixed;
-    top: 0;
+    display: none;
+    position: absolute;
+    top: 100%;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    right: 0;
     background: white;
-    display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-    z-index: 999;
-    
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
+    padding: 0;
+    border-bottom: 1px solid #eaeaea;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   }
 
   .sticky-nav nav.open {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  /* 3. The New "X" Close Button */
-  .mobile-close-btn {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #222;
-    cursor: pointer;
-    padding: 1rem;
-  }
-
-  /* 4. The Links */
-  .mobile-nav-links {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
   }
 
   .sticky-nav nav a {
-    font-size: 1.6rem; 
-    font-family: 'Source Serif 4', serif;
-    color: #333;
-    text-decoration: none;
-    transition: color 0.2s;
+    margin: 0;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #f0f0f0;
+    font-size: 1.1rem;
+    width: 100%;
   }
 
-  .sticky-nav nav a:hover,
-  .sticky-nav nav a.active {
-    color: #bb2525;
+  .sticky-nav nav a:first-of-type {
+    border-top: none;
   }
 
-  /* 5. Shrink the homepage name */
   .home-main h1.page-name {
     font-size: 2.5rem;
     margin-top: 1rem;
