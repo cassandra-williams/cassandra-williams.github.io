@@ -218,7 +218,7 @@ a:hover {
   border-bottom: 1px solid #eaeaea;
   box-shadow: 0 0px 2px rgba(0,0,0,0.75);
   z-index: 1000;
-  padding: 0.6rem 2rem;
+  padding: 0.8rem 2rem;
 }
 
 .sticky-nav .sticky-container {
@@ -622,7 +622,7 @@ footer {
   }
 
   .home-photo {
-    max-width: 200px;
+    max-width: 300px;
   }
   
   .home-links {
@@ -665,7 +665,7 @@ footer {
 
   /* Force name to stay visible on mobile */
   .home .sticky-nav .sticky-name {
-    font-size: 1.2rem;
+    font-size: 2rem;
     opacity: 1 !important; 
   }
 
@@ -682,7 +682,7 @@ footer {
     right: 0;
     background: white;
     flex-direction: column;
-    padding: 0;
+    padding: 0rem 0rem 2rem 0rem;
     border-bottom: 1px solid #eaeaea;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   }
@@ -693,19 +693,25 @@ footer {
 
   .sticky-nav nav a {
     margin: 0;
-    padding: 1rem 1.5rem;
+    padding: 1.1rem 0rem .5rem 1.5rem; /* Uniform padding on all sides */
     border-top: 1px solid #f0f0f0;
-    font-size: 1.1rem;
+    border-bottom: 1px solid transparent; /* Reserves space so the last item doesn't collapse */
+    font-size: 1.5rem;
     width: 100%;
+    text-align: left;
   }
 
+  /* The first item shouldn't have a top border */
   .sticky-nav nav a:first-of-type {
     border-top: none;
   }
 
+
   .home-main h1.page-name {
-    font-size: 2.5rem;
+     display: none; 
+}
+/* Adjust top margin of the bio since the title is gone */
+  .home-about {
     margin-top: 1rem;
-    margin-bottom: 0.5rem;
   }
 }
