@@ -9,23 +9,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Icon libraries -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
 </head>
 <body>
-  <!-- Sticky navigation bar -->
   <div class="sticky-nav" id="stickyNav">
     <div class="sticky-container">
       <a href="index.html" class="sticky-name">Cassandra Williams</a>
       <button class="sticky-mobile-toggle" id="stickyMobileToggle">☰</button>
       <nav id="stickyMainNav">
-        <a href="index.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="talks.html" class="active">Talks</a>
-        <a href="teaching.html">Teaching</a>
-        <a href="media.html">Media</a>
-        <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        <button class="mobile-close-btn" id="mobileCloseBtn">✕</button>
+        <div class="mobile-nav-links">
+          <a href="index.html">About</a>
+          <a href="research.html">Research</a>
+          <a href="talks.html" class="active">Talks</a>
+          <a href="teaching.html">Teaching</a>
+          <a href="media.html">Media</a>
+          <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </div>
       </nav>
     </div>
   </div>
@@ -35,17 +36,13 @@
       <h2 class="page-heading">Talks</h2>
 
       <div class="research-layout">
-        <!-- LEFT COLUMN -->
         <div class="research-left">
-          
-          <!-- Presentations section -->
           <h2 class="section-heading">
             Presentations
             <span class="ref-note">* = refereed</span>
           </h2>
 
           <div class="talk-list">
-
             <div class="talk">
               <div class="talk-title">Would I Still Have Attention if I Was a Worm?</div>
               <div class="talk-venue">
@@ -114,17 +111,13 @@
                 <span class="talk-date">March 18, 2023</span>
               </div>
             </div>
-
           </div>
 
-
-          <!-- Commentaries section -->
           <h2 class="section-heading">
             Commentaries
           </h2>
 
           <div class="talk-list">
-
             <div class="talk">
               <div class="talk-title">Comments on Tommaso Zorzini, "Reciprocal Causation in EES is Still Unidirectional"</div>
               <div class="talk-venue">
@@ -156,15 +149,12 @@
                 <span class="talk-date">June 20, 2025</span>
               </div>
             </div>
-
           </div>
-        </div>  <!-- closes .research-left -->
+        </div>  
 
-        <!-- RIGHT COLUMN (Empty for now, but maintains the layout) -->
         <div class="research-right">
         </div>
-
-      </div>  <!-- closes .research-layout -->
+      </div>
     </main>
 
     <footer>
@@ -173,7 +163,6 @@
   </div>
 
   <script>
-    // Sticky nav on scroll
     const stickyNav = document.getElementById('stickyNav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 75) {
@@ -184,15 +173,19 @@
     });
   </script>
   <script>
-    // Sticky nav mobile menu toggle
     const stickyToggle = document.getElementById('stickyMobileToggle');
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
     const stickyNavMenu = document.getElementById('stickyMainNav');
-
-    if (stickyToggle && stickyNavMenu) {
+    
+    if (stickyToggle && stickyNavMenu && mobileCloseBtn) {
       stickyToggle.addEventListener('click', () => {
-        stickyNavMenu.classList.toggle('open');
+        stickyNavMenu.classList.add('open');
       });
-
+      
+      mobileCloseBtn.addEventListener('click', () => {
+        stickyNavMenu.classList.remove('open');
+      });
+      
       stickyNavMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           stickyNavMenu.classList.remove('open');

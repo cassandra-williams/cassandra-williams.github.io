@@ -9,23 +9,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Icon libraries -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
 </head>
 <body>
-  <!-- Sticky navigation bar -->
   <div class="sticky-nav" id="stickyNav">
     <div class="sticky-container">
       <a href="index.html" class="sticky-name">Cassandra Williams</a>
       <button class="sticky-mobile-toggle" id="stickyMobileToggle">☰</button>
       <nav id="stickyMainNav">
-        <a href="index.html">About</a>
-        <a href="research.html" class="active">Research</a>
-        <a href="talks.html">Talks</a>
-        <a href="teaching.html">Teaching</a>
-        <a href="media.html">Media</a>
-        <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        <button class="mobile-close-btn" id="mobileCloseBtn">✕</button>
+        <div class="mobile-nav-links">
+          <a href="index.html">About</a>
+          <a href="research.html" class="active">Research</a>
+          <a href="talks.html">Talks</a>
+          <a href="teaching.html">Teaching</a>
+          <a href="media.html">Media</a>
+          <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </div>
       </nav>
     </div>
   </div>
@@ -35,24 +36,21 @@
       <h2 class="page-heading">Research</h2>
 
       <div class="research-layout">
-        <!-- LEFT COLUMN -->
         <div class="research-left">
-          <!-- Research blurb -->
           <div class="research-blurb">
             <p>My research focuses on philosophy of mind, cognitive science, and philosophy of science & biology, with the overarching aim of locating the mind in the natural world.</p>
             <p>My main research project investigates the mind at its lower boundaries: I synthesize research concerning invertebrate sentience and primitive biological agency to develop a framework that unifies life, agency, and sentience. Alongside my core project, I investigate the metaphysics of consciousness vis-a-vis the metaphysics of science, as well as the relationship between the mind and biology.</p>
           </div>
 
-          <!-- Papers section -->
           <h2 class="section-heading">Papers</h2>
 
           <h3 class="paper-subheading">Under Review
-                    <span class="ref-note">email for draft</span>
-                  </h3>
+            <span class="ref-note">email for draft</span>
+          </h3>
 
           <div class="paper paper--stacked">
             <div class="paper-content">
-              <span class="paper-title">Biosentientism</a>
+              <span class="paper-title">Biosentientism</span>
               <div class="paper-actions">
                 <button type="button" class="abstract-toggle">[abstract]</button>
               </div>
@@ -67,7 +65,7 @@
 
           <div class="paper paper--stacked">
             <div class="paper-content">
-              <span class="paper-title">Primordial Valence</a>
+              <span class="paper-title">Primordial Valence</span>
               <div class="paper-actions">
                 <button type="button" class="abstract-toggle">[abstract]</button>
               </div>
@@ -78,15 +76,12 @@
             <div class="paper-year"></div>
           </div>
 
-
-          <!-- Presentations section -->
           <h2 class="section-heading">
             Presentations
             <span class="ref-note">* = refereed</span>
           </h2>
 
           <div class="talk-list">
-
             <div class="talk">
               <div class="talk-title">Would I Still Have Attention if I Was a Worm?</div>
               <div class="talk-venue">
@@ -155,11 +150,9 @@
                 <span class="talk-date">March 18, 2023</span>
               </div>
             </div>
-
           </div>
-        </div>  <!-- closes .research-left -->
+        </div>  
 
-        <!-- RIGHT COLUMN: Photos -->
         <div class="research-right">
           <div class="photo-caption">
             <img src="images/cassandra-williams-prism-goggles.jpg" alt="Cassandra wearing prism goggles">
@@ -169,8 +162,8 @@
             <img src="images/cassandra-williams-sspp2024.png" alt="Cassandra presenting at SSPP">
             <p class="caption">Presenting at the <a href="https://southernsociety.org">Southern Society for Philosophy and Psychology</a>, 2024.</p>
           </div>
-        </div>  <!-- closes .research-right -->
-      </div>  <!-- closes .research-layout -->
+        </div>
+      </div>
     </main>
 
     <footer>
@@ -179,7 +172,6 @@
   </div>
 
   <script>
-    // Toggle abstract expansion
     document.querySelectorAll('.abstract-toggle').forEach(button => {
       button.addEventListener('click', (e) => {
         e.preventDefault();
@@ -190,7 +182,6 @@
       });
     });
 
-    // Sticky nav on scroll
     const stickyNav = document.getElementById('stickyNav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 75) {
@@ -201,15 +192,19 @@
     });
   </script>
   <script>
-    // Sticky nav mobile menu toggle
     const stickyToggle = document.getElementById('stickyMobileToggle');
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
     const stickyNavMenu = document.getElementById('stickyMainNav');
-
-    if (stickyToggle && stickyNavMenu) {
+    
+    if (stickyToggle && stickyNavMenu && mobileCloseBtn) {
       stickyToggle.addEventListener('click', () => {
-        stickyNavMenu.classList.toggle('open');
+        stickyNavMenu.classList.add('open');
       });
-
+      
+      mobileCloseBtn.addEventListener('click', () => {
+        stickyNavMenu.classList.remove('open');
+      });
+      
       stickyNavMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           stickyNavMenu.classList.remove('open');

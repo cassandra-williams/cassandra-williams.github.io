@@ -13,17 +13,23 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
 </head>
 <body>
+  <!-- Sticky navigation bar -->
   <div class="sticky-nav" id="stickyNav">
     <div class="sticky-container">
       <a href="index.html" class="sticky-name">Cassandra Williams</a>
       <button class="sticky-mobile-toggle" id="stickyMobileToggle">☰</button>
+      
+      <!-- Full screen overlay nav -->
       <nav id="stickyMainNav">
-        <a href="index.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="talks.html">Talks</a>
-        <a href="teaching.html" class="active">Teaching</a>
-        <a href="media.html">Media</a>
-        <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        <button class="mobile-close-btn" id="mobileCloseBtn">✕</button>
+        <div class="mobile-nav-links">
+          <a href="index.html">About</a>
+          <a href="research.html">Research</a>
+          <a href="talks.html">Talks</a>
+          <a href="teaching.html" class="active">Teaching</a>
+          <a href="media.html">Media</a>
+          <a href="files/cassandra-williams-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        </div>
       </nav>
     </div>
   </div>
@@ -139,11 +145,12 @@
     </main>
 
     <footer>
-      <p></p>
+      <p>© 2026 Cassandra Williams</p>
     </footer>
   </div>
 
   <script>
+    // Sticky nav on scroll
     const stickyNav = document.getElementById('stickyNav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 75) {
@@ -154,14 +161,23 @@
     });
   </script>
   <script>
+    // Mobile menu toggle
     const stickyToggle = document.getElementById('stickyMobileToggle');
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
     const stickyNavMenu = document.getElementById('stickyMainNav');
     
-    if (stickyToggle && stickyNavMenu) {
+    if (stickyToggle && stickyNavMenu && mobileCloseBtn) {
+      // Open menu
       stickyToggle.addEventListener('click', () => {
-        stickyNavMenu.classList.toggle('open');
+        stickyNavMenu.classList.add('open');
       });
       
+      // Close menu via X
+      mobileCloseBtn.addEventListener('click', () => {
+        stickyNavMenu.classList.remove('open');
+      });
+      
+      // Close menu when clicking a link
       stickyNavMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           stickyNavMenu.classList.remove('open');
